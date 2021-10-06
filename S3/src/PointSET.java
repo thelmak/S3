@@ -53,9 +53,13 @@ public class PointSET {
 
     // all points in the set that are inside the rectangle
     public Iterable<Point2D> range(RectHV rect) {
+        //make arraylist since that is implements iterable
         ArrayList<Point2D> iter = new ArrayList<>(points.size());
+        //go through each key and check if it inside the rectangle
         for (Point2D key : points) {
+            //check if the x coordinate is between the xmin and xmax of the rectangle
             if (key.x() >= rect.xmin() && key.x() <= rect.xmax()) {
+                //check if the y coordinate is between the ymin and ymax of the rectangle
                 if (key.y() >= rect.ymin() && key.y() <= rect.ymax()) {
                     iter.add(key);
 
@@ -65,7 +69,7 @@ public class PointSET {
         return iter;
 
     }
-    
+
 
     // a nearest neighbor in the set to p; null if set is empty
     public Point2D nearest(Point2D p) {
