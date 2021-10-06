@@ -57,10 +57,12 @@ public class PointSET {
     // a nearest neighbor in the set to p; null if set is empty
     public Point2D nearest(Point2D p) {
         if (!isEmpty()) {
+            //keep track of the nearest point and the distance
             Point2D near = new Point2D(0.0, 0.0);
             double min = 1.0;
             for (Point2D key : points) {
                 double distance = key.distanceTo(p);
+                //if the distance is smaller then the current min then we override the current point with the new one
                 if (distance < min) {
                     min = distance;
                     near = key;
