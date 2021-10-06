@@ -15,6 +15,8 @@ import edu.princeton.cs.algs4.RectHV;
 import edu.princeton.cs.algs4.SET;
 import edu.princeton.cs.algs4.StdOut;
 
+import java.util.ArrayList;
+
 
 public class PointSET {
 
@@ -51,8 +53,19 @@ public class PointSET {
 
     // all points in the set that are inside the rectangle
     public Iterable<Point2D> range(RectHV rect) {
-        return null;
+        ArrayList<Point2D> iter = new ArrayList<>(points.size());
+        for (Point2D key : points) {
+            if (key.x() >= rect.xmin() && key.x() <= rect.xmax()) {
+                if (key.y() >= rect.ymin() && key.y() <= rect.ymax()) {
+                    iter.add(key);
+
+                }
+            }
+        }
+        return iter;
+
     }
+    
 
     // a nearest neighbor in the set to p; null if set is empty
     public Point2D nearest(Point2D p) {
